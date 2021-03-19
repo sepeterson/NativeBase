@@ -32,6 +32,9 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
     borderColor,
     iconColor,
     size,
+    padding,
+    borderRadius,
+    borderWidth,
     ...newProps
   } = useThemeProps('Checkbox', {
     ...checkboxGroupContext,
@@ -109,16 +112,16 @@ const Checkbox = ({ icon, ...props }: ICheckboxProps, ref: any) => {
           isChecked ? (isDisabled ? borderColor : activeColor) : 'transparent'
         }
         borderColor={outlineColor}
-        borderWidth={1}
-        borderRadius={4}
-        p={1}
+        borderWidth={borderWidth}
+        borderRadius={borderRadius}
+        p={padding}
       >
         {icon && sizedIcon && isChecked ? (
           sizedIcon()
         ) : (
           <Icon
-            name="check-bold"
-            type="MaterialCommunityIcons"
+            name="check"
+            type="MaterialIcons"
             size={size}
             color={iconColor}
             opacity={isChecked ? 1 : 0}

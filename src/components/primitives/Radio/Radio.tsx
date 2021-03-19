@@ -21,6 +21,8 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
     activeColor,
     borderColor,
     size,
+    borderWidth,
+    padding,
     // isInvalid,
     ...newProps
   } = useThemeProps('Radio', {
@@ -77,12 +79,11 @@ const Radio = ({ icon, children, ...props }: IRadioProps, ref: any) => {
       <Box
         borderColor={outlineColor}
         backgroundColor={inputProps.disabled ? 'muted.200' : 'transparent'}
-        borderWidth={1}
-        display="flex"
+        borderWidth={borderWidth}
         justifyContent="center"
         alignItems="center"
         borderRadius={999}
-        p={'2px'}
+        p={padding}
       >
         {icon && isSelected ? (
           sizedIcon()

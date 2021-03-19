@@ -8,6 +8,8 @@ const baseStyle = (props: Record<string, any>) => {
     `${simplifiedColorScheme}.200`
   )(props);
   return {
+    borderWidth: 2,
+    padding: '2px',
     activeColor,
     borderColor: isInvalid
       ? mode('danger.500', 'danger.200')(props)

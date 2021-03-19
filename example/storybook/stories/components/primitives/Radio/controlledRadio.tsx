@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radio, Text } from 'native-base';
+import { Radio, Text, VStack } from 'native-base';
 import type { IRadioValue } from 'native-base';
 
 export default function ControlledRadio() {
@@ -13,12 +13,14 @@ export default function ControlledRadio() {
         setValue(nextValue);
       }}
     >
-      <Radio value="one">
-        <Text>One</Text>
-      </Radio>
-      <Radio value="two">
-        <Text>Two</Text>
-      </Radio>
+      <VStack space={2}>
+        <Radio value="one">
+          <Text ml={2}>One</Text>
+        </Radio>
+        <Radio value="two">
+          <Text ml={2}>Two</Text>
+        </Radio>
+      </VStack>
     </Radio.Group>
   );
 }
