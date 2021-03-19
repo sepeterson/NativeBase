@@ -12,7 +12,7 @@ export default function () {
           max: 100,
           step: 1,
         })}
-        colorScheme={text('colorScheme', 'purple')}
+        colorScheme={text('colorScheme', 'default')}
       >
         <Slider.Track>
           <Slider.FilledTrack />

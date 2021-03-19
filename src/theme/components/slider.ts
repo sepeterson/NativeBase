@@ -7,14 +7,17 @@ const baseStyle = (props: Record<string, any>) => {
       `${simplifiedColorScheme}.500`,
       `${simplifiedColorScheme}.200`
     )(props),
-    trackColor: mode('gray.200', 'gray.700')(props),
+    trackColor: mode(
+      `${simplifiedColorScheme}.100`,
+      `${simplifiedColorScheme}.200`
+    )(props),
   };
 };
 
 const sizes = {
   // sizes mentioned here are used in pxiles.
   lg: { thumbSize: 10, sliderSize: 9 },
-  md: { thumbSize: 8, sliderSize: 8 },
+  md: { thumbSize: 10, sliderSize: 4 },
   sm: { thumbSize: 6, sliderSize: 6 },
 };
 
@@ -35,7 +38,7 @@ export default {
 // SliderThumb
 const sliderThumbDefaultProps = {
   shadow: 2,
-  borderWidth: 2,
+  backgroundColor: 'default.400',
 };
 export const SliderThumb = {
   defaultProps: sliderThumbDefaultProps,
