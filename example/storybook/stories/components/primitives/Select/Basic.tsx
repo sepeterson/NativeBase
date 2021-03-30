@@ -2,11 +2,12 @@ import React from 'react';
 import { Select } from 'native-base';
 
 export default function () {
-  let [language, setLanguage] = React.useState<string>('');
+  let [language, setLanguage] = React.useState<string>('js');
   return (
     <Select
       selectedValue={language}
       minWidth={200}
+      placeholder="Select your favorite language"
       onValueChange={(itemValue: string) => setLanguage(itemValue)}
     >
       <Select.Item label="JavaScript" value="js" />

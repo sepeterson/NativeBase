@@ -6,6 +6,7 @@ export type ISelectProps = IButtonProps & {
   placeholder?: string;
   _placeholder?: ITextProps;
   selectedValue?: string;
+  defaultValue?: string;
   onValueChange?: (itemValue: string, itemIndex?: number) => void;
   _item?: ITextProps;
   selectedItemBg?: string;

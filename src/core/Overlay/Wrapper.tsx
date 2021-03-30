@@ -1,11 +1,5 @@
 import React, { useEffect } from 'react';
-import {
-  Animated,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View,
-  Platform,
-} from 'react-native';
+import { Animated, StyleSheet, Pressable, View, Platform } from 'react-native';
 import { useFadeTransition } from '../../components/composites/Transitions/useFadeTransition';
 import isEqual from 'lodash/isEqual';
 import type { IOverlayConfig } from './types';
@@ -181,8 +175,9 @@ function Wrapper({
       pointerEvents={'box-none'}
     >
       {isOverlayOpen && !overlayConfig.disableOverlay && (
-        <TouchableWithoutFeedback
+        <Pressable
           accessibilityLabel="Close Overlay"
+          focusable={false}
           onPress={() => {
             if (overlayConfig.closeOnPress) {
               handleClose();
@@ -190,7 +185,7 @@ function Wrapper({
           }}
         >
           <View style={overlayStyle.background} />
-        </TouchableWithoutFeedback>
+        </Pressable>
       )}
       {/* Added box-none instead of none to fix Web modal not able to get clicked inside Modal.Body */}
       <View

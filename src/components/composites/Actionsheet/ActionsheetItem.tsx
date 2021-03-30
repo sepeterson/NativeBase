@@ -6,6 +6,7 @@ import { useThemeProps } from '../../../hooks';
 const ActionsheetItem = ({ children, ...props }: IActionsheetItemProps) => {
   const newProps = useThemeProps('ActionsheetItem', props);
 
+  console.log('nwew props ', props, children);
   return (
     <Button variant="unstyled" {...newProps}>
       {children}

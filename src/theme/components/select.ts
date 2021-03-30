@@ -1,58 +1,37 @@
+import { Platform } from 'react-native';
 import { mode } from '../tools/colors';
 
-// styled
-const styled = (props: Record<string, any>) => {
+const baseStyle = (props: Record<string, any>) => {
   return {
-    variant: 'styled',
-    pl: 2,
-    pr: 0,
-    border: 1,
-    borderColor: mode('gray.600', 'gray.400')(props),
-    _isDisabled: {
-      opacity: 0.4,
-    },
-    _isInvalid: {
-      borderColor: mode('danger.600', 'danger.200')(props),
-    },
-    _hover: {
-      borderColor: 'default.500',
-    },
-  };
-};
-
-// native
-const native = (props: Record<string, any>) => {
-  return {
-    variant: 'native',
-    androidIconColor: mode('darkText', 'lightText')(props),
-    color: mode('darkText', 'lightText')(props),
-    _android: {
-      p: 2,
-    },
-    _ios: {},
-    _web: {
+    fieldStyle: {
+      appearance: Platform.OS === 'web' ? 'none' : undefined,
+      borderWidth: 0,
+      py: 2,
+      px: 2,
       bg: 'transparent',
-      borderRadius: 'md',
-      borderColor: 'default.500',
-      p: 3,
     },
-    _hover: {
+    fieldWrapperStyle: {
+      borderRadius: 4,
       borderColor: 'default.500',
+      borderWidth: 1,
+      _hover: {
+        borderColor: 'default.500',
+      },
+    },
+    arrowStyle: {
+      position: 'absolute',
+      right: 2,
+      top: '50%',
+      style: {
+        transform: [{ translateY: '-50%' }],
+      },
     },
   };
-};
-
-const variants = {
-  styled: styled,
-  native: native,
 };
 
 // Select
 export const Select = {
-  variants,
-  defaultProps: {
-    variant: 'native',
-  },
+  baseStyle,
 };
 
 // SelectIcon - only for styled variant
