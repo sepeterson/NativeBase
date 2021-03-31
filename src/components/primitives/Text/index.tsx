@@ -11,6 +11,7 @@ import {
   border,
 } from 'styled-system';
 import { useThemeProps } from '../../../hooks/useThemeProps';
+import { useTheme } from '../../../hooks';
 import {
   customBorder,
   customBackground,
@@ -52,13 +53,18 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     highlight,
     underline,
     strikeThrough,
+    fontWeight,
+    fontFamily,
     ...newProps
   } = useThemeProps('Text', props);
+
+  const { fontWeights, fonts } = useTheme();
+  const newFontFamily = `${fonts[fontFamily]}-${fontWeights[fontWeight]}`;
+
   return (
     <StyledText
       {...newProps}
       numberOfLines={noOfLines ? noOfLines : isTruncated ? 1 : undefined}
-      fontWeight={bold ? 'bold' : newProps.fontWeight}
       fontStyle={italic ? 'italic' : newProps.fontStyle}
       bg={highlight ? 'warning.200' : newProps.bg}
       textDecorationLine={
@@ -70,6 +76,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
       }
       fontSize={sub ? 10 : newProps.fontSize}
       ref={ref}
+      fontFamily={newFontFamily}
     >
       {children}
     </StyledText>
